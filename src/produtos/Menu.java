@@ -1,13 +1,14 @@
-package colchoes;
+package produtos;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import colchoes.model.Produto;
-import colchoes.model.Colchao;
-import colchoes.model.Travesseiro;
+
 import conta.Cliente;
 import produto.repository.ProdutoRepository;
-import produto.repository.ProdutoRepositoryImpl;
+import produtos.controller.ProdutoController;
+import produtos.model.Colchao;
+import produtos.model.Produto;
+import produtos.model.Travesseiro;
 
 
 public class Menu {
@@ -15,12 +16,13 @@ public class Menu {
 	public static void main(String[] args) {
 		
 		
-		ProdutoRepository repo = new ProdutoRepositoryImpl();
+		ProdutoRepository repo = new ProdutoController();
 		
 		repo.cadastrarProduto(new Colchao("Emma", 500f, 10));
         repo.cadastrarProduto(new Travesseiro("Ortobom", 150f, 3));
         repo.cadastrarProduto(new Colchao("Ortobom", 900f, 15));
         repo.cadastrarProduto(new Travesseiro("Luuna", 200f, 5));
+        
 		
 		Scanner leia = new Scanner(System.in);
 		
@@ -39,7 +41,7 @@ public class Menu {
 			System.out.println("              1 - Criar Conta	                  ");
 			System.out.println("              2 - Login			                  ");
 			System.out.println("              3 - Visualizar Produtos	          ");
-			System.out.println("              4 - FAQ					          ");
+			System.out.println("              4 - Sobre nós				          ");
 			System.out.println("              5 - Sair					          ");
 			System.out.println("                                                  ");
 			System.out.println("**************************************************");
@@ -96,8 +98,8 @@ public class Menu {
 				
 				break;			
 			case 4:
-				System.out.println("Consulte FAQ\n\n");
-				//implementar metodo no final do código com a FAQ
+				System.out.println("Sobre Nós\n\n");
+				sobreNos();
 				break;
 			default:
 				System.out.println("\nOpção Inválida");
@@ -107,7 +109,15 @@ public class Menu {
 		}
 
 	}
-
+	
+	public static void sobreNos(){
+		
+		System.out.println("Nossa missão é proporcionar a melhor experiência de descanso para nossos clientes, atraves das melhores tecnologias do mundo.");
+		
+		
+	}
+	
+	
 	public static void sobre() {
 		System.out.println("\n*********************************************************");
 		System.out.println("Projeto Desenvolvido por: Guilherme Soares ");

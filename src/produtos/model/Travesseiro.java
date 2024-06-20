@@ -1,4 +1,4 @@
-package colchoes.model;
+package produtos.model;
 
 public class Travesseiro extends Produto {
 
@@ -7,9 +7,9 @@ public class Travesseiro extends Produto {
 		
 	}
 	
-	public void CalcularValorPrazo() {
+	//public void CalcularValorPrazo() {
 		
-		this.setPreco(getPreco() + (this.getPreco() * 0.5));
-	}
+//		this.setPreco(getPreco() + (this.getPreco() * 0.5));
+	//}
 
 }

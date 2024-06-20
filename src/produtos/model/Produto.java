@@ -1,4 +1,4 @@
-package colchoes.model;
+package produtos.model;
 
 public abstract class Produto {
 
@@ -46,10 +46,6 @@ public abstract class Produto {
 		this.tipo = tipo;
 	}
 	
-	public void CalcularValorPrazo() {
-		
-		preco = (float) (preco + (preco * 0.5));
-	}
 	
 
 }

@@ -1,7 +1,7 @@
 package produto.repository;
 
-import colchoes.model.Produto;
 import conta.Cliente;
+import produtos.model.Produto;
 
 public interface ProdutoRepository {
 

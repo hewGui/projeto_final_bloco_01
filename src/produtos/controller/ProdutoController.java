@@ -1,19 +1,21 @@
 
-package produto.repository;
+package produtos.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import colchoes.model.Produto;
-import colchoes.model.Colchao;
-import colchoes.model.Travesseiro;
-import conta.Cliente;
 
-public class ProdutoRepositoryImpl implements ProdutoRepository {
+import conta.Cliente;
+import produto.repository.ProdutoRepository;
+import produtos.model.Colchao;
+import produtos.model.Produto;
+import produtos.model.Travesseiro;
+
+public class ProdutoController implements ProdutoRepository {
 
 	private List<Produto> produtos;
 	private List<Cliente> clientes;
 
-	public ProdutoRepositoryImpl() {
+	public ProdutoController() {
 		produtos = new ArrayList<>();
 		clientes = new ArrayList<>();
 	}
@@ -31,15 +33,18 @@ public class ProdutoRepositoryImpl implements ProdutoRepository {
 		}
 	}
 
-	@Override
-	public boolean login(String email, int senha) {
-		for (Cliente cliente : clientes) {
-			if (cliente.getEmail().equals(email) && cliente.getSenha() == senha) {
-				return true;
-			}
-		}
-		return false;
-	}
+    @Override
+    public boolean login(String email, int senha) {
+        if (email == null || email.isEmpty()) {
+            throw new IllegalArgumentException("Email não pode ser nulo ou vazio");
+        }
+        for (Cliente cliente : clientes) {
+            if (cliente.getEmail().equals(email) && cliente.getSenha() == senha) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 	@Override
 	public void cadastrarConta(Cliente cliente) {
